@@ -1,5 +1,6 @@
 package Sistema_para_controle_de_eventos.models;
 
+import Sistema_para_controle_de_eventos.dtos.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -42,6 +43,16 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
         this.perfil = perfil;
         this.isVerificado = isVerificado;
+    }
+    //para salvar objeto lá do usuarioService
+    public Usuario(UsuarioDTO usuarioDTO) {
+        this.nome = usuarioDTO.getNome();
+        this.email = usuarioDTO.getEmail();
+        this.senha = usuarioDTO.getSenha();
+        this.cpf = usuarioDTO.getCpf();
+        this.dataNascimento = usuarioDTO.getDataNascimento();
+        this.perfil = usuarioDTO.getPerfil();
+        this.isVerificado = usuarioDTO.getIsVerificado();
     }
 
     @Override

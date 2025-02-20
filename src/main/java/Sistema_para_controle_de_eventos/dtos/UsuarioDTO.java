@@ -1,5 +1,6 @@
 package Sistema_para_controle_de_eventos.dtos;
 
+import Sistema_para_controle_de_eventos.models.Usuario;
 import lombok.Data;
 
 import java.util.Date;
@@ -15,5 +16,14 @@ public class UsuarioDTO {
     private String perfil;
     private Boolean isVerificado;
 
-
+    public UsuarioDTO(Usuario usuario) {
+        this.id = usuario.getId();
+        this.nome = usuario.getNome();
+        this.email = usuario.getEmail();
+        this.senha = usuario.getSenha();
+        this.cpf = usuario.getCpf();
+        this.dataNascimento = usuario.getDataNascimento();
+        this.perfil = usuario.getPerfil();
+        this.isVerificado = usuario.getIsVerificado();
+    }
 }
