@@ -14,4 +14,8 @@ public class UsuarioService {
         Usuario usuario = new Usuario(usuarioDTO);
         return new UsuarioDTO(usuarioRepository.save(usuario));
     }
+
+    public Usuario buscarUsuario(Long id) {
+        return usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+    }
 }

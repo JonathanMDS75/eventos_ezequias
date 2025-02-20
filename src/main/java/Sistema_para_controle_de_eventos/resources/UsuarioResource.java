@@ -1,6 +1,7 @@
 package Sistema_para_controle_de_eventos.resources;
 
 import Sistema_para_controle_de_eventos.dtos.UsuarioDTO;
+import Sistema_para_controle_de_eventos.models.Usuario;
 import Sistema_para_controle_de_eventos.services.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,10 @@ public class UsuarioResource {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/")
-    public String getUsuarios() {
-        return "testar retorno dos Usuarios";
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioDTO>buscarUsuario(@PathVariable Long id) {
+        Usuario usuario = usuarioService.buscarUsuario(id);
+        return ResponseEntity.ok(new UsuarioDTO(usuario));
     }
     @PostMapping("/")
     public ResponseEntity<UsuarioDTO> criarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
