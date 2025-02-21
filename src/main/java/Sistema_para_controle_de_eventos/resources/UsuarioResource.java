@@ -21,6 +21,12 @@ public class UsuarioResource {
         Usuario usuario = usuarioService.buscarUsuario(id);
         return ResponseEntity.ok(new UsuarioDTO(usuario));
     }
+    @GetMapping("/buscar")
+    public ResponseEntity<UsuarioDTO> buscarUsuario(@RequestParam String email) {
+        Usuario usuario = usuarioService.buscarUsuarioPorEmail(email);
+        return ResponseEntity.ok(new UsuarioDTO(usuario));
+    }
+
     @PostMapping("/")
     public ResponseEntity<UsuarioDTO> criarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         return ResponseEntity.ok(usuarioService.salvarUsuario(usuarioDTO));

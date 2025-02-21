@@ -18,4 +18,8 @@ public class UsuarioService {
     public Usuario buscarUsuario(Long id) {
         return usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
     }
+
+    public Usuario buscarUsuarioPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+    }
 }
