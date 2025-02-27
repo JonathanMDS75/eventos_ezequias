@@ -31,4 +31,8 @@ public class UsuarioResource {
     public ResponseEntity<UsuarioDTO> criarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         return ResponseEntity.ok(usuarioService.salvarUsuario(usuarioDTO));
     }
+    @PutMapping()
+    public ResponseEntity<UsuarioDTO> atualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return ResponseEntity.ok(usuarioService.atualizarUsuario(usuarioDTO));
+    }
 }

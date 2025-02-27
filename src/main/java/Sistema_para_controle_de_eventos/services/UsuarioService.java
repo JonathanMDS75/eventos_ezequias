@@ -6,6 +6,8 @@ import Sistema_para_controle_de_eventos.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static java.util.Objects.isNull;
+
 @Service
 public class UsuarioService {
     @Autowired
@@ -21,5 +23,12 @@ public class UsuarioService {
 
     public Usuario buscarUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+    }
+    public UsuarioDTO atualizarUsuario(UsuarioDTO usuarioDTO) {
+        if (isNull(usuarioDTO.getId())) {
+            throw new IllegalArgumentException("campo Id não informado");
+        }
+        Usuario usuario = usuarioRepository.findById(usuarioDTO.getId()).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        return usuarioDTO;
     }
 }
