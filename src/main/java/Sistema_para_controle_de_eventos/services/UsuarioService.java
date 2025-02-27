@@ -29,6 +29,9 @@ public class UsuarioService {
             throw new IllegalArgumentException("campo Id não informado");
         }
         Usuario usuario = usuarioRepository.findById(usuarioDTO.getId()).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
-        return usuarioDTO;
+
+        usuario = converterUsuarioDTOParaUsuario(usuarioDTO);
+        usuario = usuarioRepository.save(usuario);
+        return new UsuarioDTO(usuario);
     }
 }
