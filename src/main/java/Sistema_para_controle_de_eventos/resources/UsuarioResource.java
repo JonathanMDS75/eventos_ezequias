@@ -35,4 +35,9 @@ public class UsuarioResource {
     public ResponseEntity<UsuarioDTO> atualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         return ResponseEntity.ok(usuarioService.atualizarUsuario(usuarioDTO));
     }
+    @DeleteMapping()
+    public ResponseEntity<Void> deletarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        usuarioService.deletarUsuario(usuarioDTO.getId());
+        return ResponseEntity.noContent().build();
+    }
 }
