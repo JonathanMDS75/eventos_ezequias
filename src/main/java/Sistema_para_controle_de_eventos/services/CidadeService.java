@@ -33,4 +33,10 @@ public class CidadeService {
         cidade.setEstado(cidadeDTO.getEstado());
         return cidade;
     }
+    public Cidade buscarCidade(Long id) {
+        return cidadeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cidade não encontrada"));
+    }
+    public void deletarCidade(Long id) {
+        cidadeRepository.deleteById(id);
+    }
 }

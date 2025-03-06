@@ -13,4 +13,9 @@ public class CidadeDTO {
     
     public CidadeDTO() {}
 
+    public CidadeDTO(Long id) {
+    }
+
+    public CidadeDTO(String cep) {
+    }
 }
