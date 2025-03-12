@@ -1,9 +1,12 @@
 package Sistema_para_controle_de_eventos.dtos;
 
+import Sistema_para_controle_de_eventos.enums.Perfil;
 import Sistema_para_controle_de_eventos.models.Usuario;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+
 @Data
 public class UsuarioDTO {
 
@@ -13,7 +16,7 @@ public class UsuarioDTO {
     private String senha;
     private String cpf;
     private Date dataNascimento;
-    private String perfil;
+    private List<Perfil> perfis;
     private Boolean isVerificado;
 
     public UsuarioDTO() {}
@@ -25,7 +28,7 @@ public class UsuarioDTO {
         this.senha = usuario.getSenha();
         this.cpf = usuario.getCpf();
         this.dataNascimento = usuario.getDataNascimento();
-        this.perfil = usuario.getPerfil();
+        this.perfis = usuario.getPerfis();
         this.isVerificado = usuario.getIsVerificado();
     }
 }
